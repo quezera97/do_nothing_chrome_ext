@@ -1,0 +1,69 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: rgb(50, 49, 49);
+  color: grey;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+header, footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+main {
+  padding: 4rem 0;
+  text-align: center;
+}
+
+button {
+  padding: 15px 40px;
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: white;
+  color: #333;
+}
+
+#header-title {
+  color: gold;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.digit { 
+    font-size: 25px; 
+    color: #fff; 
+}
+
+.digit-counter { 
+    font-size: 30px; 
+    color: #fff; 
+} 
+  
+.txt { 
+    font-size: 15px; 
+    color: #fffcd6; 
+} 
