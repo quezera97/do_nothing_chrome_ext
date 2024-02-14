@@ -44,6 +44,10 @@ document.getElementById('startButton').addEventListener('click', function() {
     divTime.removeAttribute('hidden');
 });
 
+document.getElementById('closeModal').addEventListener('click', function(event) {
+    modal.style.display = "none";
+});
+
 function stopWatch() {   
     if (timer) {
         count++;
