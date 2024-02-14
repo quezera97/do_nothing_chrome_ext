@@ -4,9 +4,28 @@ let minute = 0;
 let second = 0;
 let count = 0;
 
+let totalTime = '';
+
 let divTime = document.getElementById('div_time');
 let divStart = document.getElementById('div_start');
 divTime.setAttribute('hidden', true);
+
+// Open IndexedDB database and create object store
+const dbName = 'StopwatchDB';
+const objectStoreName = 'ResetTimes';
+let db;
+
+const request = indexedDB.open(dbName, 1);
+
+request.onupgradeneeded = function(event) {
+    db = event.target.result;
+    const objectStore = db.createObjectStore(objectStoreName, { keyPath: 'id', autoIncrement: true });
+    objectStore.createIndex('resetTime', 'resetTime', { unique: false });
+};
+
+request.onsuccess = function(event) {
+    db = event.target.result;
+};
 
 document.getElementById('startButton').addEventListener('click', function() {
     timer = true;
@@ -43,19 +62,51 @@ function stopWatch() {
         document.getElementById('sec').textContent = secString;
         document.getElementById('count').textContent = countString;
 
-        setTimeout(stopWatch, 10);        
+        setTimeout(stopWatch, 10);
+
+        totalTime = parsingTime(hrString, minString, secString);
+        
+        document.addEventListener('mousemove', handleReset);
+        document.addEventListener('keydown', handleReset);
     }
 }
 
-document.addEventListener('mousemove', handleReset);
-document.addEventListener('keydown', handleReset);
+function parsingTime(hrString, minString, secString) {
+    let hr = parseInt(hrString, 10);
+    let min = parseInt(minString, 10);
+    let sec = parseInt(secString, 10);
+
+    // Format hours
+    let formattedHr = (hr === 0) ? '' : hr + ' Hr ';
+
+    // Format minutes
+    let formattedMin = (min === 0) ? '' : (min < 10 ? min : min.toString().replace(/^0+/, '')) + ' Min ';
+
+    // Format seconds
+    let formattedSec = (sec === 0) ? '0 Sec' : sec + ' Sec';
+
+    // Construct the totalTime string
+    let totalFormattedTime = formattedHr + formattedMin + formattedSec;
+
+    return totalFormattedTime;
+}
 
 function handleReset() {
+    document.removeEventListener('mousemove', handleReset);
+    document.removeEventListener('keydown', handleReset);
+
     timer = false;
     hour = 0;
     minute = 0;
     second = 0;
     count = 0;
+
+    // Store the reset time in IndexedDB
+    const transaction = db.transaction([objectStoreName], 'readwrite');
+    const objectStore = transaction.objectStore(objectStoreName);
+    objectStore.add({ totalTime });
+
+
     document.getElementById('hr').textContent = "00";
     document.getElementById('min').textContent = "00";
     document.getElementById('sec').textContent = "00";
@@ -64,3 +115,16 @@ function handleReset() {
     divStart.removeAttribute('hidden');
     divTime.setAttribute('hidden', true);
 }
+
+// Open the Chrome DevTools
+// Right-click on your webpage and select "Inspect" or press Ctrl+Shift+I (Windows/Linux) or Cmd+Option+I (Mac) to open DevTools.
+
+// Go to the "Application" tab
+// In the DevTools, navigate to the "Application" tab.
+
+// Explore IndexedDB:
+// In the "Application" tab, you'll find a section called "Storage" in the left sidebar.
+// Expand "IndexedDB" to see a list of databases. Look for your database (in this example, it's named 'StopwatchDB').
+
+// View Object Store data:
+// Click on your database ('StopwatchDB').

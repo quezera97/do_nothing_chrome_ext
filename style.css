@@ -27,12 +27,12 @@ header, footer {
 }
 
 main {
-  padding: 4rem 0;
+  padding: 1.5rem 0;
   text-align: center;
 }
 
 button {
-  padding: 15px 40px;
+  padding: 15px 20px;
   background-color: transparent;
   color: white;
   border: 2px solid white;
@@ -67,3 +67,32 @@ button:hover {
     font-size: 15px; 
     color: #fffcd6; 
 } 
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-container > div :hover {
+  transition: all .2s ease-in-out;
+  transform: scale(1.25);
+}
+
+.table-container {
+  max-height: 100px;
+  overflow-y: scroll;
+  
+}
+
+#dataTable {
+  width: 100%;
+  overflow-x: auto;
+}
+
+#dataTable th, #dataTable td {
+  font-family: "Montserrat", sans-serif;
+  padding: 8px;
+  font-size: large;
+  color: gold;
+  font-weight: bold;
+}
