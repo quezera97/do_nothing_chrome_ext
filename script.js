@@ -17,6 +17,15 @@ let db;
 
 const request = indexedDB.open(dbName, 1);
 
+//Modal
+var modal = document.getElementById("myModal");
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
 request.onupgradeneeded = function(event) {
     db = event.target.result;
     const objectStore = db.createObjectStore(objectStoreName, { keyPath: 'id', autoIncrement: true });
@@ -101,6 +110,8 @@ function handleReset() {
     second = 0;
     count = 0;
 
+    document.getElementById('time_data_modal').textContent = totalTime;
+
     // Store the reset time in IndexedDB
     const transaction = db.transaction([objectStoreName], 'readwrite');
     const objectStore = transaction.objectStore(objectStoreName);
@@ -114,6 +125,8 @@ function handleReset() {
 
     divStart.removeAttribute('hidden');
     divTime.setAttribute('hidden', true);
+
+    modal.style.display = "block";
 }
 
 // Open the Chrome DevTools

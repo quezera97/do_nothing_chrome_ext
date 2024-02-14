@@ -47,7 +47,7 @@ button:hover {
   color: #333;
 }
 
-#header-title {
+.header_title {
   color: gold;
   font-size: 30px;
   font-weight: bold;
