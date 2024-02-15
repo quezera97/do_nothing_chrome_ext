@@ -4,9 +4,9 @@
 
 **Built With:**
 <p align="left"> 
-  <img height="40" src="https://cdn.svgporn.com/logos/html-5.svg" width="40">
-  <img height="40" src="https://cdn.svgporn.com/logos/css-3.svg" width="40">
-  <img height="40" src="https://cdn.svgporn.com/logos/javascript.svg" width="40">
+  <img height="60" src="https://cdn.svgporn.com/logos/html-5.svg" width="60">
+  <img height="60" src="https://cdn.svgporn.com/logos/css-3.svg" width="60">
+  <img height="60" src="https://cdn.svgporn.com/logos/javascript.svg" width="60">
 </p>
 
 ### Screenshots:
@@ -19,6 +19,5 @@
 
 The "Do Nothing" Chrome Extension is a minimalist tool designed to help you take a break from your busy digital life. With a sleek and simple interface, it encourages users to pause and do nothing for a moment, promoting mindfulness and relaxation.
 
-### To Install (Available on Google Chrome):
-<a href="https://chromewebstore.google.com/detail/do-nothing-not-something/obfmghhebkpiekcepfjbkailhdmfkcpe" target="_blank">Do Nothing</a>
+### To Install <a href="https://chromewebstore.google.com/detail/do-nothing-not-something/obfmghhebkpiekcepfjbkailhdmfkcpe" target="_blank">Do Nothing</a> (Available on Google Chrome):
 <p>https://chromewebstore.google.com/detail/do-nothing-not-something/obfmghhebkpiekcepfjbkailhdmfkcpe</p>
