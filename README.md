@@ -18,3 +18,7 @@
 ### Description:
 
 The "Do Nothing" Chrome Extension is a minimalist tool designed to help you take a break from your busy digital life. With a sleek and simple interface, it encourages users to pause and do nothing for a moment, promoting mindfulness and relaxation.
+
+### To Install (Available on Google Chrome):
+<a href="https://chromewebstore.google.com/detail/do-nothing-not-something/obfmghhebkpiekcepfjbkailhdmfkcpe" target="_blank">Do Nothing</a>
+<p>https://chromewebstore.google.com/detail/do-nothing-not-something/obfmghhebkpiekcepfjbkailhdmfkcpe</p>
